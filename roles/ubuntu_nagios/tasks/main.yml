@@ -76,6 +76,12 @@
     make
     make install
 
+- name: adding users to nagios
+  community.general.htpasswd:
+    path: /usr/local/nagios/etc/htpasswd.users
+    name: admin
+    password: admin
+
 - name: Nagios Start/Enable Check
   service:
     name: nagios
